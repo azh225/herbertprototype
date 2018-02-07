@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class crabEnemyMove : MonoBehaviour {
 
-	//Rigidbody2D crb2D;  
 	private bool crabRight = true; 
 	float crabMoveSpeed = 2.0f; 
 
@@ -12,34 +11,30 @@ public class crabEnemyMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-	//crb2D = GetComponent<Rigidbody2D> (); 
+		//GameManager.instance.crb2D = GetComponent<Rigidbody2D> (); 
 	}
 
 
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 	{
-		if (crabRight) 
-		{
+		if (crabRight) {
 			transform.Translate (Vector2.right * crabMoveSpeed * Time.deltaTime);
-		} 
-
-		else 
-		{
+		} else {
 			transform.Translate (-Vector2.right * crabMoveSpeed * Time.deltaTime); 
 		}
 
 
-		if (transform.position.x >= 3.95f)
-		{
+		if (transform.position.x >= 3.95f) {
 			crabRight = false;
 		}
 
-		if (transform.position.x <= -2.95f) 
-		{
+		if (transform.position.x <= -2.95f) {
 			crabRight = true; 
 		}
-			
 
 	}
+		
+		
+
 }

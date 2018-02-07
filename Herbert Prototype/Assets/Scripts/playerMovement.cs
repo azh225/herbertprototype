@@ -2,53 +2,95 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerMovement: MonoBehaviour
+public class playerMovement : MonoBehaviour
 {
+	//  Controls if we can move or not.
+	public bool canMove;
 
-	public bool canMove; 
-	float moveSpeed = 10f; 
-	float jumpSpeed = 80f; 
+	//  Controls how fast we can move.
+	float moveSpeed = 10f;
 
-	public Rigidbody2D rb2D; 
+	//  Reference to the BoxCollider Component on the Player.
+	//  It is null until we assign it. This was assigned in the
+	//  Inspector.
 
-	public BoxCollider2D herbertCollider;
-	public GameObject herbert;
+	//  Reference to the Rigidbody2D Component on the Player.
+	//  It is null until we assign it. We assigned this in 
+	//  Start function.
+	Rigidbody2D hrb2D;
 
-	// Use this for initialization
-	void Start () 
+	// Use this for initialization.
+	void Start ()
 	{
-		rb2D = GetComponent<Rigidbody2D> (); 
-		canMove = true; 
-		 
-
+		//  At that start of the game we can move.
+		canMove = true;
+		//  We assign rb2D to the Rigidbody2D Component on
+		//  the gameobject we are on.
+		hrb2D = GetComponent<Rigidbody2D>();
 	}
 
+	/// <summary>
+	///     Moves the player based on horizontal and vertical inputs.
+	/// </summary>
+	/// <param name="dx">Force applied in the horizontal direction.</param>
+	/// <param name="dy">Force applied in the vertical direction.</param>
 	private void Move(float dx, float dy)
 	{
-		rb2D.velocity = new Vector2 (dx * moveSpeed, dy * jumpSpeed); 
+		//  Applies the new vector to our velocity.
+		hrb2D.velocity = new Vector2(dx * moveSpeed, dy * moveSpeed);
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-		//float x = Input.GetAxis("Horizontal"); 
-		//float y = Input.GetAxis("Vertical"); 
+	// Update is called once per frame.
+	void Update ()
+	{
+		//-------- Movement with physics --------//
 
-		if (Input.GetKey (KeyCode.LeftArrow)) 
+		//  Assigns input from horizontal and vertical axes defined
+		//  in Unity to our floats x and y.
+		float x = Input.GetAxis("Horizontal");
+		float y = Input.GetAxis("Vertical");
+
+		//  If we press '0' on the keyboard we toggle movement.
+		if(Input.GetKeyDown(KeyCode.Alpha0))
 		{
-			transform.Translate (Vector2.left * moveSpeed * Time.deltaTime);
-		} 
-
-		if (Input.GetKey (KeyCode.RightArrow)) 
-		{
-			transform.Translate (Vector2.right * moveSpeed * Time.deltaTime);
-		} 
-
-
-		if (Input.GetKeyDown (KeyCode.UpArrow)) 
-		{
-			transform.Translate (Vector2.up * jumpSpeed * Time.deltaTime);
+			canMove = !canMove;
 		}
-			
+
+		//  If we can move, move.
+		if (canMove)
+		{
+			Move(x, y);
+		}
+		else
+		{
+			Move(0,0);
+		}
+
+
+		//-------- Movement with transforms --------//
+
+		/*
+	    if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += new Vector3(0.0f, 1.0f) * Time.deltaTime * moveSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position += new Vector3(0.0f, -1.0f) * Time.deltaTime * moveSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position += new Vector3(-1.0f, 0.0f) * Time.deltaTime * moveSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.position += new Vector3(1.0f, 0.0f) * Time.deltaTime * moveSpeed;
+        }
+        */
+
+
 	}
 }

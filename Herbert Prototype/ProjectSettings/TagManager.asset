@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Left
+  - Right
+  - Top
+  - Bottom
+  - Life
+  - Life 2
+  - Life 3
+  - Seaweed Wall
+  - Bubble Wall
+  - Bubble Wall 2
+  - Shiny 1
+  - Shiny 2
+  - Shiny 3
+  - Left/Right Instructions
   layers:
   - Default
   - TransparentFX
