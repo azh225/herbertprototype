@@ -17,7 +17,8 @@ public class detectHerbert : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other )
 	{
-		if (other.gameObject.tag == "Player") {
+		if (other.gameObject.tag == "Player") 
+		{
 			CameraMovement.canMoveCamera = true;
 
 			// using tags, make sure each collider has correct tag 
@@ -28,7 +29,12 @@ public class detectHerbert : MonoBehaviour {
 			} else if (transform.tag == "Right") {
 				CameraMovement.currentDir = CameraMovement.Dir.right;
 
-			} 
+			} else if (transform.tag == "Top") {
+				CameraMovement.currentDir = CameraMovement.Dir.up; 
+
+			} else if (transform.tag == "Bottom") {
+				CameraMovement.currentDir = CameraMovement.Dir.down;
+			}
 
 		}
 

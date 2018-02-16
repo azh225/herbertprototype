@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class shiny : MonoBehaviour {
 
-	public float num_of_shinnies;
+	public Sprite coin; 
+	public Sprite shadow; 
+	public SpriteRenderer sr; 
 
 	void Start()
 	{
+		sr = GetComponent<SpriteRenderer>();  
 
 	}
 
@@ -20,48 +23,32 @@ public class shiny : MonoBehaviour {
 	{ 
 		if (herbert.gameObject.tag == "Player") 
 		{
-			num_of_shinnies = num_of_shinnies + 1; 
-			Debug.Log ("I have " + num_of_shinnies);
-
-			if (num_of_shinnies == 1) 
-			{
-				Destroy (GameObject.FindGameObjectWithTag ("Shiny 1")); 
-			}
-
-			if (num_of_shinnies == 2) 
-			{
-				Destroy (GameObject.FindGameObjectWithTag ("Shiny 2")); 
-			}
-
-			if (num_of_shinnies == 3) 
-			{
-				Destroy (GameObject.FindGameObjectWithTag ("Shiny 3")); 
-			}
-
+			herbert.gameObject.GetComponent<playerMovement> ().num_of_shinnies++; 
+			Destroy (gameObject);  
 		}
 
-//		if (herbert.gameObject.tag == "Player")
-//		{
-//			num_of_shinnies = 2;  
-//			Debug.Log ("I have " + num_of_shinnies);
-//			Destroy (GameObject.FindGameObjectWithTag ("Shiny 2")); 
-//		}
-//
-//		if (herbert.gameObject.tag == "Player") 
-//		{
-//			num_of_shinnies = 3;  
-//			Debug.Log ("I have " + num_of_shinnies);
-//			Destroy (GameObject.FindGameObjectWithTag ("Shiny 3"));
-//		}
+		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_shinnies == 2) 
+		{
+			Debug.Log ("Have 2 Shinnies"); 
+			//imageChange (GameObject.FindGameObjectWithTag ("shinyShadow1"));
+		}
 
-		if (num_of_shinnies == 3) 
+		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_shinnies == 3) 
 		{
 			Debug.Log ("Have 3 Shinnies"); 
 			Destroy (GameObject.FindGameObjectWithTag ("Bubble Wall 2")); 
 		}
 
-
-
-
 	}
+
+	public void imageChange()
+	{
+		sr.sprite = coin;  
+	}
+
+	public void imageNotChange()
+	{
+		sr.sprite = shadow; 
+	}
+		
 }

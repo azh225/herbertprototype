@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class destroyMoveInstructions : MonoBehaviour {
 
+	public GameObject upPrefab; 
+
 	// Use this for initialization
 	void Start () {
 		
@@ -14,9 +16,9 @@ public class destroyMoveInstructions : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter2D (Collider2D herbert){
-		Debug.Log ("I'm HITTING IT"); 
-		Destroy (transform.gameObject); 
-		Destroy (GameObject.FindGameObjectWithTag ("Left/Right Instructions")); 
+	void OnTriggerEnter2D (Collider2D herbert)
+	{
+		Destroy (transform.parent.gameObject); 
+		Instantiate (upPrefab); 
 	}
 }

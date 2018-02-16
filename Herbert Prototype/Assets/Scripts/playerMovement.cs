@@ -2,95 +2,121 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class playerMovement : MonoBehaviour
 {
-	//  Controls if we can move or not.
-	public bool canMove;
-
-	//  Controls how fast we can move.
-	float moveSpeed = 10f;
-
-	//  Reference to the BoxCollider Component on the Player.
-	//  It is null until we assign it. This was assigned in the
-	//  Inspector.
-
-	//  Reference to the Rigidbody2D Component on the Player.
-	//  It is null until we assign it. We assigned this in 
-	//  Start function.
+ 
+	public bool isGrounded = false;
+	public bool isHiding = false; 
+	public LayerMask playerMask; 
+	public float moveSpeed = 15f;
+	public float jumpSpeed = 20f; 
+	Transform myTrans;  
+	Transform tagGround;
 	Rigidbody2D hrb2D;
 
-	// Use this for initialization.
+	public int num_of_shinnies; 
+	public float num_of_lives = 8;
+
+	public Sprite hermitShell; 
+	public Sprite dangerHermit; 
+	public Sprite herbert; 
+	public SpriteRenderer sr;  
+
+
 	void Start ()
 	{
-		//  At that start of the game we can move.
-		canMove = true;
-		//  We assign rb2D to the Rigidbody2D Component on
-		//  the gameobject we are on.
+		sr = GetComponent<SpriteRenderer>(); 
+
+		num_of_shinnies = 0; 
 		hrb2D = GetComponent<Rigidbody2D>();
+		myTrans = this.transform; 
+		tagGround = GameObject.Find (this.name + "/tag_ground").transform;  
 	}
 
-	/// <summary>
-	///     Moves the player based on horizontal and vertical inputs.
-	/// </summary>
-	/// <param name="dx">Force applied in the horizontal direction.</param>
-	/// <param name="dy">Force applied in the vertical direction.</param>
-	private void Move(float dx, float dy)
+
+	void FixedUpdate ()
 	{
-		//  Applies the new vector to our velocity.
-		hrb2D.velocity = new Vector2(dx * moveSpeed, dy * moveSpeed);
+		if (Input.GetKeyDown (KeyCode.Z)) 
+			imageDefense ();
+		
+		if (Input.GetKeyDown (KeyCode.X)) 
+			imageAttack (); 
+		
+		if (Input.GetKeyDown (KeyCode.DownArrow))
+			Destroy (GameObject.FindGameObjectWithTag ("DigGround")); 
+	
+		if (Input.GetKeyUp (KeyCode.Z))  
+			imageOriginal ();
+		
+		if (Input.GetKeyUp (KeyCode.X)) 
+			imageOriginal ();
+		
+
+		isGrounded = Physics2D.Linecast (myTrans.position, tagGround.position, playerMask);   
+
+		Move(Input.GetAxis("Horizontal"));  
+		if (Input.GetButtonDown("Jump")) 
+			Jump(); 
+
+
 	}
 
-	// Update is called once per frame.
-	void Update ()
+	public void Move(float horizontalInput) 
 	{
-		//-------- Movement with physics --------//
-
-		//  Assigns input from horizontal and vertical axes defined
-		//  in Unity to our floats x and y.
-		float x = Input.GetAxis("Horizontal");
-		float y = Input.GetAxis("Vertical");
-
-		//  If we press '0' on the keyboard we toggle movement.
-		if(Input.GetKeyDown(KeyCode.Alpha0))
-		{
-			canMove = !canMove;
-		}
-
-		//  If we can move, move.
-		if (canMove)
-		{
-			Move(x, y);
-		}
-		else
-		{
-			Move(0,0);
-		}
-
-
-		//-------- Movement with transforms --------//
-
-		/*
-	    if (Input.GetKey(KeyCode.W))
-        {
-            transform.position += new Vector3(0.0f, 1.0f) * Time.deltaTime * moveSpeed;
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position += new Vector3(0.0f, -1.0f) * Time.deltaTime * moveSpeed;
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += new Vector3(-1.0f, 0.0f) * Time.deltaTime * moveSpeed;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += new Vector3(1.0f, 0.0f) * Time.deltaTime * moveSpeed;
-        }
-        */
-
-
+		if (isHiding)
+			return; 
+		
+		Vector2 moveVel = hrb2D.velocity; 
+		moveVel.x = horizontalInput * moveSpeed; 
+		hrb2D.velocity = moveVel; 
 	}
+
+	public void Jump()
+	{
+		if(isGrounded)  
+			hrb2D.velocity += jumpSpeed * Vector2.up;
+	}
+
+	public void imageDefense() 
+	{
+		sr.sprite = hermitShell;
+		tag = "Shell"; 
+		isHiding = true; 
+	}
+
+	public void imageAttack()
+	{
+		sr.sprite = dangerHermit; 
+		tag = "Attack"; 
+		isHiding = false; 
+	}
+
+	public void imageOriginal()
+	{
+		sr.sprite = herbert; 
+		tag = "Player"; 
+		isHiding = false; 
+	}
+
 }
+
+
+//don't use canMove anymore-- still want to impliment toggle movement for defense
+////		//  If we press '0' on the keyboard we toggle movement.
+////		if(Input.GetKeyDown(KeyCode.Alpha0))
+////		{
+////			canMove = !canMove;
+////		}
+
+
+/*			shield = new List<Shield> (); 
+
+for (int i = 0; i < 1; i++)
+{
+	Shield b = new Shield (); 
+	b.shieldObject = Instantiate (shieldPrefab); 
+	b.shieldObject.transform.position = tagShieldSpawn.position; 
+ 
+}
+*/ 

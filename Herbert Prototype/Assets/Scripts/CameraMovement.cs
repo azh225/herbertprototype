@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour {
 
 	public static bool canMoveCamera; 
 
-	public enum Dir {left, right}; 
+	public enum Dir {left, right, up, down}; 
 	public static Dir currentDir; 
 
 	Vector2 targetPos; 
@@ -15,10 +15,10 @@ public class CameraMovement : MonoBehaviour {
 
 	// how much target moves 
 	public float stepX = 35.0f; 
-	public float stepY = 14.7f;
+	public float stepY = 23.4f;
 
 
-	float cameraSpeed = 10f; 
+	float cameraSpeed = 20f; 
 
 
 	// Use this for initialization
@@ -37,9 +37,13 @@ public class CameraMovement : MonoBehaviour {
 
 
 			if (currentDir == Dir.left) {
-				targetPos = new Vector2( lastPos.x - stepX, lastPos.y); 
+				targetPos = new Vector2 (lastPos.x - stepX, lastPos.y); 
 			} else if (currentDir == Dir.right) {
-				targetPos = new Vector2( lastPos.x + stepX, lastPos.y); 
+				targetPos = new Vector2 (lastPos.x + stepX, lastPos.y); 
+			} else if (currentDir == Dir.up) {
+				targetPos = new Vector2 (lastPos.x, lastPos.y + stepY); 
+			} else if (currentDir == Dir.down) {
+				targetPos = new Vector2 (lastPos.x, lastPos.y - stepY); 
 			}
 
 
