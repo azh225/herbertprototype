@@ -17,6 +17,7 @@ public class levelFinish : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D herbert)
 	{
+		if (herbert.gameObject.tag == "Player" || herbert.gameObject.tag == "Attack")
 		SceneManager.LoadScene ("Level1Success"); 
 	}
 }

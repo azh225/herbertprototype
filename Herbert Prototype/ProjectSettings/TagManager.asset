@@ -15,8 +15,6 @@ TagManager:
   - Shiny 2
   - Shiny 3
   - Left/Right Instructions
-  - CrabRight
-  - CrabLeft
   - shinyShadow1
   - Life 1
   - Life 2
@@ -31,6 +29,7 @@ TagManager:
   - Attack
   - Ground
   - DigGround
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -41,7 +40,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Background
   - 
   - 
   - 
@@ -67,4 +66,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2025823073
     locked: 0

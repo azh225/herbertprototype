@@ -15,5 +15,35 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelFail.unity
     guid: f3132ad9b5d5b4161882cd4bad27edcb
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/Playground.unity
     guid: aae65f3a38c8e474ebd212f0552a90c5
+  - enabled: 1
+    path: Assets/Scenes/jellyfishLevel01.unity
+    guid: 573bf7dc578294cca87a2c316b822d76
+  - enabled: 1
+    path: Assets/Scenes/JellyfishLevel02.unity
+    guid: 576e001be98094e5aa5a28e07e48294d
+  - enabled: 1
+    path: Assets/Scenes/crabLevel01.unity
+    guid: 640ced5d2102941e09f38592a68b5d60
+  - enabled: 1
+    path: Assets/Scenes/Level2Success.unity
+    guid: e4db927f2a0384747b6a0859a2e8a243
+  - enabled: 1
+    path: Assets/Scenes/Level3Success.unity
+    guid: e43db0acdadd645c89f0df438009e9b3
+  - enabled: 1
+    path: Assets/Scenes/Level4Success.unity
+    guid: ec3f0aa8946574cc4b96d4ff92a5251d
+  - enabled: 1
+    path: Assets/Scenes/Level5Success.unity
+    guid: 3e4e93eee74084fdbaf55e67f97ecd4b
+  - enabled: 1
+    path: Assets/Scenes/Level6Success.unity
+    guid: caac5707eee8842239f9af30e7e8733c
+  - enabled: 1
+    path: Assets/Scenes/octopusLevel01.unity
+    guid: a2ad5e695d8f443a0970735a97013290
+  - enabled: 1
+    path: Assets/Scenes/crabOctopusLevel.unity
+    guid: 394bce8beec0e419cb435acdf6fc6dfc

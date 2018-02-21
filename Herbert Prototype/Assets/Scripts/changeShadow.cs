@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class changeShadow : MonoBehaviour {
 
-	public Sprite coin; 
-	public Sprite shadow; 
-	public SpriteRenderer sr; 
+	public SpriteRenderer shadowSR; 
+	public SpriteRenderer shadow2SR; 
+	public SpriteRenderer shadow3SR; 
+
 
 	// Use this for initialization
 	void Start () 
 	{
-		sr = GetComponent<SpriteRenderer>();  
+		shadowSR = GetComponent<SpriteRenderer>();  
+		shadow2SR = GetComponent<SpriteRenderer>();  
+		shadow3SR = GetComponent<SpriteRenderer>();  
 	}
 	
 	// Update is called once per frame
@@ -19,15 +22,5 @@ public class changeShadow : MonoBehaviour {
 	{
   
 	}
-
-
-	public void imageChange()
-	{
-		sr.sprite = coin;  
-	}
-
-	public void imageNotChange()
-	{
-		sr.sprite = shadow; 
-	}
+		
 }

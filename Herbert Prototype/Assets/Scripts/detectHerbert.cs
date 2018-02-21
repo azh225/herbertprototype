@@ -15,10 +15,9 @@ public class detectHerbert : MonoBehaviour {
 	}
 
 
-	void OnTriggerEnter2D(Collider2D other )
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "Player") 
-		{
+		if (other.gameObject.tag == "Player" || other.gameObject.tag == "Attack" || other.gameObject.tag == "Shell") {
 			CameraMovement.canMoveCamera = true;
 
 			// using tags, make sure each collider has correct tag 
@@ -36,6 +35,10 @@ public class detectHerbert : MonoBehaviour {
 				CameraMovement.currentDir = CameraMovement.Dir.down;
 			}
 
+		}
+
+		if (other.gameObject.tag == "Enemy") {
+			Debug.Log ("IM HITTING SOMETHING I'M NOT SUPPOSED TO BE NOTICING"); 
 		}
 
 	}

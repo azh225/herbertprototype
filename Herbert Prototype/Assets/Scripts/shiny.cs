@@ -7,6 +7,9 @@ public class shiny : MonoBehaviour {
 	public Sprite coin; 
 	public Sprite shadow; 
 	public SpriteRenderer sr; 
+	public GameObject shinyShadow1; 
+	public GameObject shinyShadow2; 
+	public GameObject shinyShadow3; 
 
 	void Start()
 	{
@@ -21,29 +24,45 @@ public class shiny : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D herbert)
 	{ 
-		if (herbert.gameObject.tag == "Player") 
-		{
+		if (herbert.gameObject.tag == "Player" || herbert.gameObject.tag == "Attack") 
+		{ 
 			herbert.gameObject.GetComponent<playerMovement> ().num_of_shinnies++; 
-			Destroy (gameObject);  
+			Destroy (gameObject);
+			Debug.Log ("I have this many coins: " + herbert.gameObject.GetComponent<playerMovement> ().num_of_shinnies); 
 		}
 
-		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_shinnies == 2) 
+		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_shinnies == 9) 
 		{
-			Debug.Log ("Have 2 Shinnies"); 
-			//imageChange (GameObject.FindGameObjectWithTag ("shinyShadow1"));
+			imageChange1 (); 
 		}
 
-		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_shinnies == 3) 
+		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_shinnies == 18) 
 		{
-			Debug.Log ("Have 3 Shinnies"); 
-			Destroy (GameObject.FindGameObjectWithTag ("Bubble Wall 2")); 
+			imageChange2 (); 
+		}
+
+		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_shinnies == 27) 
+		{
+			imageChange3 (); 
+			Destroy (GameObject.FindGameObjectWithTag ("Bubble Wall 2"));
+
 		}
 
 	}
 
-	public void imageChange()
+	public void imageChange1()
 	{
-		sr.sprite = coin;  
+		shinyShadow1.gameObject.GetComponent<changeShadow> ().shadowSR.sprite = coin;  
+	}
+
+	public void imageChange2()
+	{
+		shinyShadow2.gameObject.GetComponent<changeShadow> ().shadow2SR.sprite = coin;  
+	}
+
+	public void imageChange3()
+	{
+		shinyShadow3.gameObject.GetComponent<changeShadow> ().shadow3SR.sprite = coin;  
 	}
 
 	public void imageNotChange()

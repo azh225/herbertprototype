@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour {
 	// update score here
 	// change scenes (make a game over scene) 
 
+	public static GameManager instance; 
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -18,14 +21,40 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetMouseButton (0)) 
-		{
-			SceneManager.LoadScene ("Level 1"); 
-		}
-			
 	}
-		
-			
 
+	public void GoToMainMenu () {
+		SceneManager.LoadScene ("MainMenu"); 
 
+	}
+
+	public void GoToLevelOne () {
+		SceneManager.LoadScene ("Playground"); 
+
+	}
+
+	public void GoToLevelTwo () {
+		SceneManager.LoadScene ("JellyfishLevel01"); 
+
+	}
+
+	public void GoToLevelThree () {
+		SceneManager.LoadScene ("JellyfishLevel02"); 
+
+	}
+
+	public void GoToLevelFour() {
+		SceneManager.LoadScene ("crabLevel01"); 
+
+	}
+
+	public void GoToLevelFive() {
+		SceneManager.LoadScene ("octopusLevel01"); 
+
+	}
+
+	public void GoToLevelSix() {
+		SceneManager.LoadScene ("crabOctopusLevel"); 
+
+	}
 }

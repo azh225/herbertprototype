@@ -7,7 +7,7 @@ public class playerMovement : MonoBehaviour
 {
  
 	public bool isGrounded = false;
-	public bool isHiding = false; 
+	public bool isHidingActive = false; 
 	public LayerMask playerMask; 
 	public float moveSpeed = 15f;
 	public float jumpSpeed = 20f; 
@@ -29,6 +29,7 @@ public class playerMovement : MonoBehaviour
 		sr = GetComponent<SpriteRenderer>(); 
 
 		num_of_shinnies = 0; 
+
 		hrb2D = GetComponent<Rigidbody2D>();
 		myTrans = this.transform; 
 		tagGround = GameObject.Find (this.name + "/tag_ground").transform;  
@@ -42,8 +43,8 @@ public class playerMovement : MonoBehaviour
 		
 		if (Input.GetKeyDown (KeyCode.X)) 
 			imageAttack (); 
-		
-		if (Input.GetKeyDown (KeyCode.DownArrow))
+
+		if (Input.GetKeyDown (KeyCode.DownArrow)) 
 			Destroy (GameObject.FindGameObjectWithTag ("DigGround")); 
 	
 		if (Input.GetKeyUp (KeyCode.Z))  
@@ -56,25 +57,32 @@ public class playerMovement : MonoBehaviour
 		isGrounded = Physics2D.Linecast (myTrans.position, tagGround.position, playerMask);   
 
 		Move(Input.GetAxis("Horizontal"));  
-		if (Input.GetButtonDown("Jump")) 
+		if (Input.GetKeyDown (KeyCode.UpArrow)) //"Jump" using Edit --> Project Settings --> Input. Change space for up
 			Jump(); 
-
+		
 
 	}
 
 	public void Move(float horizontalInput) 
 	{
-		if (isHiding)
-			return; 
-		
-		Vector2 moveVel = hrb2D.velocity; 
-		moveVel.x = horizontalInput * moveSpeed; 
-		hrb2D.velocity = moveVel; 
+		if (isHidingActive == true) 
+		{
+			Vector2 moveVel = hrb2D.velocity;  
+			moveVel.x = horizontalInput * 0;  
+			hrb2D.velocity = moveVel; 
+		}
+
+		if (isHidingActive == false) 
+		{
+			Vector2 moveVel = hrb2D.velocity; 
+			moveVel.x = horizontalInput * moveSpeed; 
+			hrb2D.velocity = moveVel; 
+		}
 	}
 
 	public void Jump()
 	{
-		if(isGrounded)  
+		if(isGrounded && isHidingActive == false)  
 			hrb2D.velocity += jumpSpeed * Vector2.up;
 	}
 
@@ -82,41 +90,32 @@ public class playerMovement : MonoBehaviour
 	{
 		sr.sprite = hermitShell;
 		tag = "Shell"; 
-		isHiding = true; 
+		isHidingActive = true; 
 	}
 
 	public void imageAttack()
 	{
 		sr.sprite = dangerHermit; 
 		tag = "Attack"; 
-		isHiding = false; 
+		isHidingActive = false; 
 	}
 
 	public void imageOriginal()
 	{
 		sr.sprite = herbert; 
 		tag = "Player"; 
-		isHiding = false; 
+		isHidingActive = false; 
 	}
 
+//	void OnCollisionEnter2D (Collision2D sand) 
+//	{
+//		if (sand.gameObject.tag == "DigGround" && Input.GetKeyDown (KeyCode.DownArrow))
+//		{
+//			//if (Input.GetKeyDown (KeyCode.DownArrow))
+//				Destroy (GameObject.FindGameObjectWithTag ("DigGround")); 
+//		}
+
+	//}
+
 }
-
-
-//don't use canMove anymore-- still want to impliment toggle movement for defense
-////		//  If we press '0' on the keyboard we toggle movement.
-////		if(Input.GetKeyDown(KeyCode.Alpha0))
-////		{
-////			canMove = !canMove;
-////		}
-
-
-/*			shield = new List<Shield> (); 
-
-for (int i = 0; i < 1; i++)
-{
-	Shield b = new Shield (); 
-	b.shieldObject = Instantiate (shieldPrefab); 
-	b.shieldObject.transform.position = tagShieldSpawn.position; 
- 
-}
-*/ 
+	

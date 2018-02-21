@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212704626089681868}
   - component: {fileID: 114550555088812898}
   - component: {fileID: 61504345820772172}
-  - component: {fileID: 50880777158562616}
   m_Layer: 0
   m_Name: jellyfish
   m_TagString: Untagged
@@ -37,32 +36,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1078438375041236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2817745, y: -0.09608507, z: -0.4397628}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
+  m_LocalPosition: {x: -5.9, y: -6.6, z: 0.4397628}
+  m_LocalScale: {x: 0.14999999, y: 0.14999999, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50880777158562616
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1078438375041236}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &61504345820772172
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -75,7 +54,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.28689384, y: 1.5778809}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -86,7 +65,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.159998, y: 23.99}
+  m_Size: {x: 11.99601, y: 20.260464}
   m_EdgeRadius: 0
 --- !u!114 &114550555088812898
 MonoBehaviour:
