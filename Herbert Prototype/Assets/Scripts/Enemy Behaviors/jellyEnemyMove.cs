@@ -7,8 +7,8 @@ public class jellyEnemyMove : MonoBehaviour {
 
 
 	private bool jellyDown;
-	float jellyMoveSpeed = 5f; //1.75f; 
-	float moveThreshold = 2f; 
+	public float jellyMoveSpeed = 5f;
+	public float moveThreshold = 2f; 
 	float initPosY; 
 
 
@@ -65,7 +65,25 @@ public class jellyEnemyMove : MonoBehaviour {
 			herbert.gameObject.GetComponent<playerMovement> ().num_of_lives--; 
 		}
 
-		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives == 7)
+		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives < 1) 
+		{
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 8")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 7")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 6")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 5")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 4")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 3")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 2")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 1"));
+//			Destroy (GameObject.FindGameObjectWithTag ("Player")); 
+			SceneManager.LoadScene ("LevelFail"); 
+		}
+	}
+
+}
+
+/* 
+		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives == 7) 
 		{
 			Debug.Log ("I have this many lives: " + herbert.gameObject.GetComponent<playerMovement> ().num_of_lives); 
 			Destroy (GameObject.FindGameObjectWithTag ("Life 8")); 
@@ -128,19 +146,4 @@ public class jellyEnemyMove : MonoBehaviour {
 			Destroy (GameObject.FindGameObjectWithTag ("Life 2")); 
 		}
 
-		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives < 1) 
-		{
-			Destroy (GameObject.FindGameObjectWithTag ("Life 8")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 7")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 6")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 5")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 4")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 3")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 2")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 1"));
-			Destroy (GameObject.FindGameObjectWithTag ("Player")); 
-			SceneManager.LoadScene ("LevelFail"); 
-		}
-	}
-
-}
+*/ 

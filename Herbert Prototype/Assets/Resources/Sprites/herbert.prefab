@@ -71,7 +71,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1177886764089342}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a8e337bb12887424aaa147459c11dd86, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -99,7 +99,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e5743f7589d142359715137d3182cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMove: 0
+  isGrounded: 0
+  isHidingActive: 0
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  moveSpeed: 15
+  jumpSpeed: 20
+  num_of_shinnies: 0
+  num_of_lives: 8
+  livesText: {fileID: 0}
+  scoreText: {fileID: 0}
+  hermitShell: {fileID: 0}
+  herbert: {fileID: 0}
+  sr: {fileID: 0}
 --- !u!212 &212935104019981422
 SpriteRenderer:
   m_ObjectHideFlags: 1

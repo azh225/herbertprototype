@@ -85,7 +85,27 @@ public class octopusEnemyMove : MonoBehaviour {
 			herbert.gameObject.GetComponent<playerMovement> ().num_of_lives--; 
 		}
 
-		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives == 7) 
+
+		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives < 1) 
+		{
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 8")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 7")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 6")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 5")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 4")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 3")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 2")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 1"));
+//			Destroy (GameObject.FindGameObjectWithTag ("Player")); 
+			SceneManager.LoadScene ("LevelFail"); 
+		}
+			
+	}
+}
+
+/* 
+ * 
+ * 		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives == 7) 
 		{
 			Debug.Log ("I have this many lives: " + herbert.gameObject.GetComponent<playerMovement> ().num_of_lives); 
 			Destroy (GameObject.FindGameObjectWithTag ("Life 8")); 
@@ -148,19 +168,4 @@ public class octopusEnemyMove : MonoBehaviour {
 			Destroy (GameObject.FindGameObjectWithTag ("Life 2")); 
 		}
 
-		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives < 1) 
-		{
-			Destroy (GameObject.FindGameObjectWithTag ("Life 8")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 7")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 6")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 5")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 4")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 3")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 2")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 1"));
-			Destroy (GameObject.FindGameObjectWithTag ("Player")); 
-			SceneManager.LoadScene ("LevelFail"); 
-		}
-			
-	}
-}
+*/ 

@@ -11,6 +11,7 @@ public class urchinEnemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//urb2D = GetComponent<Rigidbody2D> (); 
+
 	}
 	
 	// Update is called once per frame
@@ -31,17 +32,35 @@ public class urchinEnemy : MonoBehaviour {
 		if (herbert.gameObject.tag == "Player") 
 		{
 			herbert.gameObject.GetComponent<playerMovement> ().num_of_lives = herbert.gameObject.GetComponent<playerMovement> ().num_of_lives - 2;  
-			//herbert.gameObject.GetComponent<BoxCollider2D> ().sharedMaterial.bounciness = 5f;
 		}
 
 		if (herbert.gameObject.tag == "Shell") 
 		{
 			herbert.gameObject.GetComponent<playerMovement> ().num_of_lives--; 
-			//this.gameObject.GetComponent<BoxCollider2D> ().sharedMaterial.bounciness = 0f; 
 
 		}
 
-		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives == 7) 
+		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives < 1) 
+		{
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 8")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 7")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 6")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 5")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 4")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 3")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 2")); 
+//			Destroy (GameObject.FindGameObjectWithTag ("Life 1"));
+//			Destroy (GameObject.FindGameObjectWithTag ("Player")); 
+			SceneManager.LoadScene ("LevelFail"); 
+		}
+
+
+	}
+		
+}
+
+/* 
+  		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives == 7) 
 		{
 			Debug.Log ("I have this many lives: " + herbert.gameObject.GetComponent<playerMovement> ().num_of_lives); 
 			Destroy (GameObject.FindGameObjectWithTag ("Life 8")); 
@@ -104,21 +123,4 @@ public class urchinEnemy : MonoBehaviour {
 			Destroy (GameObject.FindGameObjectWithTag ("Life 2")); 
 		}
 
-		if (herbert.gameObject.GetComponent<playerMovement> ().num_of_lives < 1) 
-		{
-			Destroy (GameObject.FindGameObjectWithTag ("Life 8")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 7")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 6")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 5")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 4")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 3")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 2")); 
-			Destroy (GameObject.FindGameObjectWithTag ("Life 1"));
-			Destroy (GameObject.FindGameObjectWithTag ("Player")); 
-			SceneManager.LoadScene ("LevelFail"); 
-		}
-
-
-	}
-		
-}
+*/ 
