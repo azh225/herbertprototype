@@ -30,20 +30,20 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelFail.unity
     guid: f3132ad9b5d5b4161882cd4bad27edcb
   - enabled: 1
-    path: Assets/Scenes/Playground.unity
+    path: Assets/Scenes/Level1Playground.unity
     guid: aae65f3a38c8e474ebd212f0552a90c5
   - enabled: 1
-    path: Assets/Scenes/jellyfishLevel01.unity
+    path: Assets/Scenes/Level4JellyCrab.unity
     guid: 573bf7dc578294cca87a2c316b822d76
   - enabled: 1
-    path: Assets/Scenes/JellyfishLevel02.unity
+    path: Assets/Scenes/Level2Jelly.unity
     guid: 576e001be98094e5aa5a28e07e48294d
   - enabled: 1
-    path: Assets/Scenes/crabLevel01.unity
+    path: Assets/Scenes/Level3Crab.unity
     guid: 640ced5d2102941e09f38592a68b5d60
   - enabled: 1
-    path: Assets/Scenes/octopusLevel01.unity
+    path: Assets/Scenes/Level5Octo.unity
     guid: a2ad5e695d8f443a0970735a97013290
   - enabled: 1
-    path: Assets/Scenes/crabOctopusLevel.unity
+    path: Assets/Scenes/Level6OctoCrab.unity
     guid: 394bce8beec0e419cb435acdf6fc6dfc

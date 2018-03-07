@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212567518302693136}
   m_Layer: 0
   m_Name: hermitShell
-  m_TagString: Untagged
+  m_TagString: Shell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 142eab00a00834155a6e8c21aa7aeb10, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8310ad0593cf04619890e6e4cf655f3a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
