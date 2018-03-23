@@ -15,22 +15,13 @@ TagManager:
   - Shiny 2
   - Shiny 3
   - Left/Right Instructions
-  - shinyShadow1
-  - Life 1
-  - Life 2
-  - Life 3
-  - Life 4
-  - Life 5
-  - Life 6
-  - Life 7
-  - Life 8
-  - Shield
   - Shell
-  - Attack
   - Ground
   - DigGround
   - Enemy
   - Coin
+  - Z
+  - Coral
   layers:
   - Default
   - TransparentFX
