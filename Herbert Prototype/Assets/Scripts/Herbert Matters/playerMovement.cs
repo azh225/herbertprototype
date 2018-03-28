@@ -11,10 +11,11 @@ public class playerMovement : MonoBehaviour
 	public bool isHidingActive = false; 
 	public LayerMask playerMask; 
 	public float moveSpeed = 10f;
-	public float jumpSpeed = 20f; 
+	public float jumpSpeed = 20f;
+	public bool isMoving = false; 
 	Transform myTrans;  
 	Transform tagGround;
-	Rigidbody2D hrb2D;
+	public Rigidbody2D hrb2D;
 
 	public int num_of_shinnies; 
 	public float num_of_lives = 8;
@@ -29,7 +30,7 @@ public class playerMovement : MonoBehaviour
 	public AudioClip coralLandingSound;
 	public AudioClip sandLandingSound;
 	public AudioSource audioSource; 
- 
+	 
 
 
 	void Start ()
@@ -92,8 +93,7 @@ public class playerMovement : MonoBehaviour
 			Destroy (GameObject.FindGameObjectWithTag ("Bubble Wall 2"));
 
 		}
-
-
+			
 
 		if (Input.GetKeyDown (KeyCode.Z)) 
 			imageDefense ();
@@ -110,13 +110,13 @@ public class playerMovement : MonoBehaviour
 			Jump (); 
 		}
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-			sr.flipX = true; 
+			sr.flipX = true;
+			 
 		}
 		if (Input.GetKeyDown (KeyCode.RightArrow)) {
 			sr.flipX = false; 
+			 
 		}
-	
-		
 
 	}
 
@@ -149,8 +149,7 @@ public class playerMovement : MonoBehaviour
 		tag = "Shell"; 
 		isHidingActive = true; 
 	}
-
-
+		
 	public void imageOriginal()
 	{
 		sr.sprite = herbert; 
@@ -167,7 +166,6 @@ public class playerMovement : MonoBehaviour
 			num_of_shinnies++; 
 			Destroy (other.gameObject);
 		}
-			
 	}
 
 	void OnCollisionEnter2D (Collision2D other) 
