@@ -12,7 +12,9 @@ public class basicEnemy : MonoBehaviour {
 
 	public AudioClip shellSound;
 	public AudioClip hitSound; 
-	public AudioSource audioSource; 
+	public AudioSource audioSource;
+
+	public ParticleSystem blood; 
 
 	// Use this for initialization
 	void Start () {
@@ -61,6 +63,7 @@ public class basicEnemy : MonoBehaviour {
 		{
 			audioSource.PlayOneShot (hitSound, 1.0f); 
 			herbert.gameObject.GetComponent<playerMovement> ().num_of_lives = herbert.gameObject.GetComponent<playerMovement> ().num_of_lives - 2; 
+			blood.Play(); 
 		}
 
 		if (herbert.gameObject.tag == "Shell")

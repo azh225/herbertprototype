@@ -10,6 +10,8 @@ public class urchinEnemy : MonoBehaviour {
 	public AudioClip hitSound; 
 	public AudioSource audioSource; 
 
+	public ParticleSystem blood; 
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -29,7 +31,8 @@ public class urchinEnemy : MonoBehaviour {
 		if (herbert.gameObject.tag == "Player") 
 		{
 			audioSource.PlayOneShot (hitSound, 1.0f); 
-			herbert.gameObject.GetComponent<playerMovement> ().num_of_lives = herbert.gameObject.GetComponent<playerMovement> ().num_of_lives - 2;  
+			herbert.gameObject.GetComponent<playerMovement> ().num_of_lives = herbert.gameObject.GetComponent<playerMovement> ().num_of_lives - 2;
+			blood.Play(); 
 		}
 
 		if (herbert.gameObject.tag == "Shell") 

@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Herbert Prototype",
+"dataUrl": "Herbert_ArtUpdateApr4.data.unityweb",
+"asmCodeUrl": "Herbert_ArtUpdateApr4.asm.code.unityweb",
+"asmMemoryUrl": "Herbert_ArtUpdateApr4.asm.memory.unityweb",
+"asmFrameworkUrl": "Herbert_ArtUpdateApr4.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}

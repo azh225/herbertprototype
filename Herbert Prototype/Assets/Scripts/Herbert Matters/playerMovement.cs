@@ -30,12 +30,14 @@ public class playerMovement : MonoBehaviour
 	public AudioClip coralLandingSound;
 	public AudioClip sandLandingSound;
 	public AudioSource audioSource; 
-	 
+
+	public Animator anim; 
 
 
 	void Start ()
 	{
 		sr = GetComponent<SpriteRenderer>(); 
+		anim = GetComponent<Animator> (); 
  
 
 		livesText.text = "Lives: " + num_of_lives;  
@@ -111,6 +113,8 @@ public class playerMovement : MonoBehaviour
 		}
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
 			sr.flipX = true;
+			//anim.SetFloat ("moveX", horizontalInput); 
+
 			 
 		}
 		if (Input.GetKeyDown (KeyCode.RightArrow)) {
@@ -122,8 +126,11 @@ public class playerMovement : MonoBehaviour
 
 	public void Move(float horizontalInput) 
 	{
+		anim.SetFloat ("moveX", Mathf.Abs(horizontalInput)); 
+
 		if (isHidingActive == true) 
 		{
+			anim.SetBool ("hiding", true); 
 			Vector2 moveVel = hrb2D.velocity;  
 			moveVel.x = horizontalInput * 0;  
 			hrb2D.velocity = moveVel; 
@@ -131,6 +138,7 @@ public class playerMovement : MonoBehaviour
 
 		if (isHidingActive == false) 
 		{
+			anim.SetBool ("hiding", false); 
 			Vector2 moveVel = hrb2D.velocity; 
 			moveVel.x = horizontalInput * moveSpeed; 
 			hrb2D.velocity = moveVel; 

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212430759037272610}
   - component: {fileID: 61074182763651664}
   - component: {fileID: 114993029998566480}
+  - component: {fileID: 114183444417256588}
   m_Layer: 0
   m_Name: Z
   m_TagString: Untagged
@@ -67,6 +68,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.55410576, y: 8.535458}
   m_EdgeRadius: 0
+--- !u!114 &114183444417256588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1472897505788476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a7c3b8bf2ff45b2a2b25eb35f7fc1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shinyMoveSpeed: 0.13
+  moveThreshold: 0.1
 --- !u!114 &114993029998566480
 MonoBehaviour:
   m_ObjectHideFlags: 1
