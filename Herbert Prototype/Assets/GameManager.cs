@@ -24,10 +24,12 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 
 	}
+	public void GoToIntro () {
+		SceneManager.LoadScene ("Intro"); 
+	}
 
 	public void GoToMainMenu () {
 		SceneManager.LoadScene ("MainMenu"); 
-
 	}
 
 	public void RetryLevel() {
