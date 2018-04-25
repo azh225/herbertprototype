@@ -22,6 +22,8 @@ TagManager:
   - Coin
   - Z
   - Coral
+  - music
+  - Arrow
   layers:
   - Default
   - TransparentFX

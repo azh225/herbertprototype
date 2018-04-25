@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Scenes/Etc/GameStart.unity
+    guid: ea42c13c8aedf4074ba4af51b98f6a42
+  - enabled: 1
+    path: Assets/_Scenes/Etc/Intro.unity
+    guid: cb1bd8ae369f7499cbe86339da067be6
+  - enabled: 1
     path: Assets/_Scenes/Etc/MainMenu.unity
     guid: d173cff6908894c23bdeeba754545b93
   - enabled: 1
@@ -47,9 +53,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Levels/Level6OctoCrab.unity
     guid: 394bce8beec0e419cb435acdf6fc6dfc
-  - enabled: 1
-    path: Assets/_Scenes/Etc/GameStart.unity
-    guid: ea42c13c8aedf4074ba4af51b98f6a42
-  - enabled: 1
-    path: Assets/_Scenes/Etc/Intro.unity
-    guid: cb1bd8ae369f7499cbe86339da067be6

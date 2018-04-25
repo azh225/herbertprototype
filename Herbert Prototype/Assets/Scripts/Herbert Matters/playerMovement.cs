@@ -18,13 +18,11 @@ public class playerMovement : MonoBehaviour
 	public Rigidbody2D hrb2D;
 
 	public int num_of_shinnies; 
-	public float num_of_lives = 8;
-	public Text livesText; 
-	public Text scoreText; 
+	public int num_of_lives = 8;
 
 	public Sprite hermitShell; 
 	public Sprite herbert; 
-	public SpriteRenderer sr;  
+	public SpriteRenderer sr;   
 
 	public AudioClip shinySound;
 	public AudioClip coralLandingSound;
@@ -38,11 +36,6 @@ public class playerMovement : MonoBehaviour
 	{
 		sr = GetComponent<SpriteRenderer>(); 
 		anim = GetComponent<Animator> (); 
- 
-
-		livesText.text = "Lives: " + num_of_lives;  
-		scoreText.text = "Shinies: 0 of 3"; 
-
 
 		hrb2D = GetComponent<Rigidbody2D>();
 		myTrans = this.transform; 
@@ -56,44 +49,10 @@ public class playerMovement : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		if (num_of_lives == 7) {
-			livesText.text = "Lives: " + 7;   
-		}
-		if (num_of_lives == 6) {
-			livesText.text = "Lives: " + 6;   
-		}
-		if (num_of_lives == 5) {
-			livesText.text = "Lives: " + 5;   
-		}
-		if (num_of_lives == 4) {
-			livesText.text = "Lives: " + 4;   
-		}
-		if (num_of_lives == 3) {
-			livesText.text = "Lives: " + 3;   
-		}
-		if (num_of_lives == 2) {
-			livesText.text = "Lives: " + 2;   
-		}
-		if (num_of_lives == 1) {
-			livesText.text = "Lives: " + 1;   
-		}
-
-		if (num_of_shinnies == 1) 
-		{
-			scoreText.text = "Shinies: 1 of 3"; 
-		}
-
-		if (num_of_shinnies == 2) 
-		{
-			scoreText.text = "Shinies: 2 of 3"; 
-
-		}
 
 		if (num_of_shinnies == 3) 
 		{
-			scoreText.text = "Shinies: 3 of 3"; 
 			Destroy (GameObject.FindGameObjectWithTag ("Bubble Wall 2"));
-
 		}
 			
 
@@ -113,7 +72,6 @@ public class playerMovement : MonoBehaviour
 		}
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
 			sr.flipX = true;
-			//anim.SetFloat ("moveX", horizontalInput); 
 
 			 
 		}
@@ -147,7 +105,7 @@ public class playerMovement : MonoBehaviour
 
 	public void Jump()
 	{
-		if(isGrounded) // && isHidingActive == false  
+		if(isGrounded)  
 			hrb2D.velocity += jumpSpeed * Vector2.up;
 	}
 
@@ -164,6 +122,7 @@ public class playerMovement : MonoBehaviour
 		tag = "Player"; 
 		isHidingActive = false; 
 	}
+		
 		
 
 	void OnTriggerEnter2D (Collider2D other)
